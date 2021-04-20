@@ -1,7 +1,14 @@
 import React from 'react';
+import { Footer, Header } from '../components';
 
 const MainLayout = ({ children }) => {
-    return <></>;
+    return (
+        <>
+            <Header />
+            {children}
+            <Footer />
+        </>
+    );
 };
 
 export default MainLayout;

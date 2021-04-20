@@ -1,11 +1,12 @@
 import React from 'react';
-import { AppProvider, renderRouter } from './core';
+import { AppProvider, renderRouters } from './core';
 import routers from './routers';
+import rootReducers from './redux/reducers';
 
 const App = () => {
     return (
         <AppProvider reducers={rootReducers}>
-            {renderRouter(routers)}
+            {renderRouters(routers)}
         </AppProvider>
     );
 };

@@ -7,7 +7,7 @@ const composeEnhancers =
         ? window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__']({})
         : compose;
 
-const store;
+let store;
 
 const AppProvider = ({ children, reducers }) => {
     if (!store) {
