@@ -27,3 +27,4 @@ const { action, reducer, TYPE } = createSlice({
 });
 
 export default reducer;
+export const productGetAll = action.catalog;
