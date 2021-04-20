@@ -1,3 +1,3 @@
-const DOMAIN = 'http://cfd-reactjs.herokuapp.com';
+const DOMAIN = 'https://cfd-reactjs.herokuapp.com';
 
 export default DOMAIN;
