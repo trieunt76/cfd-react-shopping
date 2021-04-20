@@ -2,12 +2,18 @@ import { MainLayout } from './layouts';
 import Auth from './pages/Auth';
 import Home from './pages/Home';
 import Account from './pages/Account';
+import Catalog from './pages/Catalog';
 
 const routers = [
     {
         path: '/',
         component: MainLayout,
         routers: [
+            {
+                path: '/',
+                exact: true,
+                component: Home,
+            },
             {
                 path: '/auth',
                 component: Auth,
@@ -18,9 +24,8 @@ const routers = [
                 auth: true,
             },
             {
-                path: '/',
-                exact: true,
-                component: Home,
+                path: '/catalog',
+                component: Catalog,
             },
         ],
     },

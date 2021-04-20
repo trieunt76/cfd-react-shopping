@@ -1,13 +1,48 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { authLogin } from '../../../redux/reducers/authReducer';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLogin } from '../../../redux/reducers/authReducer';
+import { useFormValidate } from '../../../hooks';
 
 const Login = () => {
     let dispatch = useDispatch();
 
+    const auth = useSelector((state) => state.auth);
+
+    const { form, check, inputChange, error } = useFormValidate(
+        {
+            email: '',
+            password: '',
+        },
+        {
+            rules: {
+                email: {
+                    required: true,
+                    // pattern: 'email',
+                },
+                password: {
+                    required: true,
+                },
+            },
+            messages: {
+                email: {
+                    required: 'Vui lòng nhập email!',
+                    // pattern: 'Email không đúng định dạng!',
+                },
+                password: {
+                    required: 'Vui lòng nhập mật khẩu!',
+                },
+            },
+        }
+    );
+
     const handleLogin = (e) => {
         e.preventDefault();
-        dispatch(authLogin());
+
+        let error = check();
+
+        if (Object.keys(error).length === 0) {
+            dispatch(fetchLogin(form));
+        }
     };
 
     return (
@@ -15,6 +50,7 @@ const Login = () => {
             {/* Heading */}
             <h6 className="mb-7">Returning Customer</h6>
             {/* Form */}
+            <p className="form-error">{auth.error && auth.error}</p>
             <form>
                 <div className="row">
                     <div className="col-12">
@@ -24,11 +60,16 @@ const Login = () => {
                                 Email Address *
                             </label>
                             <input
+                                name="email"
+                                onChange={inputChange}
                                 className="form-control form-control-sm"
                                 id="loginEmail"
                                 type="email"
                                 placeholder="Email Address *"
                             />
+                            {error.email && (
+                                <p className="form-error">{error.email}</p>
+                            )}
                         </div>
                     </div>
                     <div className="col-12">
@@ -41,8 +82,13 @@ const Login = () => {
                                 className="form-control form-control-sm"
                                 id="loginPassword"
                                 type="password"
+                                name="password"
+                                onChange={inputChange}
                                 placeholder="Password *"
                             />
+                            {error.password && (
+                                <p className="form-error">{error.password}</p>
+                            )}
                         </div>
                     </div>
                     <div className="col-12 col-md">
