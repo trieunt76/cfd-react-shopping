@@ -1,6 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addCart } from '../../../redux/reducers/cartReducer';
 
-const Product = ({ name, real_price, images, thumbnail_url }) => {
+const Product = (props) => {
+    const dispatch = useDispatch();
+    const { name, real_price, images } = props;
+
     let img1 = images?.[0]?.medium_url;
     let img2 = images?.[0]?.medium_url;
     return (
@@ -51,6 +56,7 @@ const Product = ({ name, real_price, images, thumbnail_url }) => {
                             <button
                                 className="btn btn-xs btn-circle btn-white-primary"
                                 data-toggle="button"
+                                onClick={dispatch.bind(null, addCart(props))}
                             >
                                 <i className="fe fe-shopping-cart" />
                             </button>

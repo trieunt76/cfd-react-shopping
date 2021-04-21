@@ -12,14 +12,19 @@ import {
     Size,
     Slider,
 } from './components';
+import { useLocation } from 'react-router';
+import queryString from 'query-string';
 
 const Catalog = () => {
     const dispatch = useDispatch();
-    const { products } = useSelector((state) => state.product);
+    const { search } = useLocation();
+    const { page } = queryString.parse(search);
+
+    const { products, paginate } = useSelector((state) => state.product);
 
     useEffect(() => {
-        dispatch(fetchAllProduct());
-    }, [dispatch]);
+        dispatch(fetchAllProduct(page));
+    }, [dispatch, page]);
 
     return (
         <section className="py-11">
@@ -162,7 +167,7 @@ const Catalog = () => {
                             })}
                         </div>
                         {/* Pagination */}
-                        <Pagination />
+                        <Pagination {...paginate} />
                     </div>
                 </div>
             </div>

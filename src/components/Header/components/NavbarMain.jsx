@@ -1,13 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const NavbarMain = () => {
+    let { num } = useSelector((state) => state.cart);
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white">
             <div className="container">
-                <a className="navbar-brand" href="./overview.html">
+                <Link className="navbar-brand" to="/">
                     Shopper.
-                </a>
+                </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -66,7 +68,7 @@ const NavbarMain = () => {
                                 data-toggle="modal"
                                 href="#modalShoppingCart"
                             >
-                                <span data-cart-items={2}>
+                                <span data-cart-items={num > 0 ? num : null}>
                                     <i className="fe fe-shopping-cart" />
                                 </span>
                             </a>

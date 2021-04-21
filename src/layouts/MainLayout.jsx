@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer, Header } from '../components';
+import { Footer, Header, ModalCart } from '../components';
 
 const MainLayout = ({ children }) => {
     return (
@@ -7,6 +7,7 @@ const MainLayout = ({ children }) => {
             <Header />
             {children}
             <Footer />
+            <ModalCart />
         </>
     );
 };

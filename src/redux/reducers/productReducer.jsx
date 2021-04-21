@@ -3,13 +3,14 @@ import { productAPI } from '../../api';
 
 const initialState = {
     products: [],
+    paginate: null,
 };
 
-export function fetchAllProduct() {
+export function fetchAllProduct(page) {
     return (dispatch) => {
         productAPI
-            .getAll()
-            .then((res) => dispatch({ type: TYPE.catalog, payload: res.data }));
+            .getAll(page)
+            .then((res) => dispatch({ type: TYPE.catalog, payload: res }));
     };
 }
 
@@ -20,7 +21,8 @@ const { action, reducer, TYPE } = createSlice({
         catalog: (state, action) => {
             return {
                 ...state,
-                products: action.payload,
+                products: action.payload.data,
+                paginate: action.payload.paginate,
             };
         },
     },
