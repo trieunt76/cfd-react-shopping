@@ -1,6 +1,7 @@
 import React from 'react';
 import { Features } from '../../components';
-import { Banner, Brand, Pick, Review, TopSell } from './components';
+import { WithCountdown } from '../../hoc';
+import { Banner, Brand, CountDown, Pick, Review, TopSell } from './components';
 
 const Home = () => {
     return (
@@ -9,6 +10,10 @@ const Home = () => {
             <Features />
             <Pick />
             <TopSell />
+            <WithCountdown
+                WrapperComponent={CountDown}
+                initialValue={(1 * 24 + 5) * 60 * 60 + 1800}
+            />
             <Review />
             <Brand />
         </>

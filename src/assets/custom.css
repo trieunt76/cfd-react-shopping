@@ -2,3 +2,16 @@
     color: #f82a2a;
     margin-top: 5px;
 }
+
+.cart-num input {
+    width: 30%;
+    text-align: center;
+    border: none;
+}
+
+.cart-num button {
+    border: none;
+    padding: 0 20px;
+    font-size: 20px;
+    outline: 0;
+}

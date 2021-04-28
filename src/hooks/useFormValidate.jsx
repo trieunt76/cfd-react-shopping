@@ -30,11 +30,16 @@ const useFormValidate = (initialForm, validate) => {
             [name]: value,
         });
     };
-    const check = () => {
+    const check = (option = { exclude: {} }) => {
+        let { exclude } = option;
+        if (typeof exclude === 'undefined') exclude = {};
         let errors = {};
 
         for (let i in rules) {
+            if (i in exclude) continue;
+
             let rule = rules[i];
+
             let message = messages?.[i] || null;
 
             if (rule.required && !form[i]) {

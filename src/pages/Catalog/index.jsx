@@ -14,6 +14,7 @@ import {
 } from './components';
 import { useLocation } from 'react-router';
 import queryString from 'query-string';
+import { withFormatPrice } from '../../hoc';
 
 const Catalog = () => {
     const dispatch = useDispatch();
@@ -162,7 +163,12 @@ const Catalog = () => {
                         <div className="row">
                             {products.map((product) => {
                                 return (
-                                    <Product key={product._id} {...product} />
+                                    <div
+                                        key={product._id}
+                                        className="col-6 col-md-4"
+                                    >
+                                        {withFormatPrice(Product, product)}
+                                    </div>
                                 );
                             })}
                         </div>

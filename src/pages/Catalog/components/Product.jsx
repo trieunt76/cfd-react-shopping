@@ -4,12 +4,12 @@ import { addCart } from '../../../redux/reducers/cartReducer';
 
 const Product = (props) => {
     const dispatch = useDispatch();
-    const { name, real_price, images } = props;
+    const { name, real_price_text, images } = props;
 
     let img1 = images?.[0]?.medium_url;
     let img2 = images?.[0]?.medium_url;
     return (
-        <div className="col-6 col-md-4">
+        <>
             {/* Card */}
             <div className="card mb-7">
                 {/* Badge */}
@@ -87,11 +87,11 @@ const Product = (props) => {
                     </div>
                     {/* Price */}
                     <div className="font-weight-bold text-muted">
-                        ${real_price}
+                        {real_price_text} vnđ
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

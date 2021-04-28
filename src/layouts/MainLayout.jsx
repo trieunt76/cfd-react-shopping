@@ -1,13 +1,15 @@
-import React from 'react';
-import { Footer, Header, ModalCart } from '../components';
+import React, { useRef } from 'react';
+import { Footer, Header, ModalCart, ModalSizeChart } from '../components';
 
 const MainLayout = ({ children }) => {
+    let modalSizeChartRef = useRef();
     return (
         <>
             <Header />
             {children}
-            <Footer />
+            <Footer modalSizeChartRef={modalSizeChartRef} />
             <ModalCart />
+            <ModalSizeChart ref={modalSizeChartRef} />
         </>
     );
 };

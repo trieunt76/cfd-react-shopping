@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CountDown = () => {
+const CountDown = ({ day, hours, minute, seconds }) => {
     return (
         <section
             className="py-13 bg-cover"
@@ -25,7 +25,7 @@ const CountDown = () => {
                                     className="font-size-h1 font-weight-bolder text-primary"
                                     data-days
                                 >
-                                    00
+                                    {day}
                                 </div>
                                 <div className="heading-xxs text-muted">
                                     Days
@@ -41,7 +41,7 @@ const CountDown = () => {
                                     className="font-size-h1 font-weight-bolder text-primary"
                                     data-hours
                                 >
-                                    00
+                                    {hours.toString().padStart(2, 0)}
                                 </div>
                                 <div className="heading-xxs text-muted">
                                     Hours
@@ -57,7 +57,7 @@ const CountDown = () => {
                                     className="font-size-h1 font-weight-bolder text-primary"
                                     data-minutes
                                 >
-                                    00
+                                    {minute.toString().padStart(2, 0)}
                                 </div>
                                 <div className="heading-xxs text-muted">
                                     Minutes
@@ -73,7 +73,7 @@ const CountDown = () => {
                                     className="font-size-h1 font-weight-bolder text-primary"
                                     data-seconds
                                 >
-                                    00
+                                    {seconds.toString().padStart(2, 0)}
                                 </div>
                                 <div className="heading-xxs text-muted">
                                     Seconds

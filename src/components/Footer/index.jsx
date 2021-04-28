@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const Footer = ({ modalSizeChartRef }) => {
     return (
         <footer
             className="bg-dark bg-cover @@classList"
@@ -93,13 +94,17 @@ const Footer = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         className="text-gray-300"
                                         data-toggle="modal"
-                                        href="#modalSizeChart"
+                                        to=""
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            modalSizeChartRef.current.open();
+                                        }}
                                     >
                                         Size Guide
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <a

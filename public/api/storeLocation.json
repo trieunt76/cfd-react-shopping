@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "title": "Baldwin Hills Crenshaw Plaza",
+            "address": "Mönckebergstrasse 11 20095 Hamburg, Germany",
+            "phone": "6-146-389-574",
+            "border_top": null,
+            "store_hours": "10 am - 10 pm EST, 7 days a week",
+            "link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.6882032740336!2d108.24554851473059!3d15.97765098893757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421085dcd59fa3%3A0xdae26642138ecfde!2zTmFtIEvhu7MgS2jhu59pIE5naMSpYSwgSMOyYSBRdcO9LCBOZ8WpIEjDoG5oIFPGoW4sIMSQw6AgTuG6tW5nIDU1MDAwMCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1619575001029!5m2!1sen!2s"
+        },
+        {
+            "title": "Stonewood Center",
+            "address": "Largo Corsia Dei Servi 3 20122 Milan, Italy",
+            "phone": "6-146-389-574",
+            "border_top": "border-top",
+            "store_hours": "10 am - 10 pm EST, 7 days a week",
+            "link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.920816875263!2d108.20840001473186!3d16.069598288880634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142183418af652f%3A0xc23e49bb053c6d34!2zxJAuIEzDqiBEdeG6qW4sIFRoYW5oIEtow6osIMSQw6AgTuG6tW5nIDU1MDAwMCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1619576809993!5m2!1sen!2s"
+        },
+        {
+            "title": "Shalyapin Palace",
+            "address": "Block 5, 5th Floor, Harcourt Centre, Harcourt Road Dublin, Ireland",
+            "phone": "6-146-389-574",
+            "border_top": "border-top",
+            "store_hours": "10 am - 10 pm EST, 7 days a week",
+            "link": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3835.6882032740336!2d108.24554851473059!3d15.97765098893757!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421085dcd59fa3%3A0xdae26642138ecfde!2zTmFtIEvhu7MgS2jhu59pIE5naMSpYSwgSMOyYSBRdcO9LCBOZ8WpIEjDoG5oIFPGoW4sIMSQw6AgTuG6tW5nIDU1MDAwMCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1619575001029!5m2!1sen!2s"
+        }
+    ]
+}

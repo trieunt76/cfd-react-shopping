@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeCart } from '../../redux/reducers/cartReducer';
+import {
+    decrementItemCart,
+    incrementItemCart,
+    removeCart,
+} from '../../redux/reducers/cartReducer';
+import { withFormatPrice } from '../../hoc';
+import { Link } from 'react-router-dom';
 
 const ModalCart = () => {
-    const { listCart, num } = useSelector((state) => state.cart);
-    console.log(num, listCart);
+    let { listCart, num, amount } = useSelector((state) => state.cart);
+
+    amount = new Intl.NumberFormat('vi-VN', {
+        currency: 'VND',
+    }).format(amount);
+
     return createPortal(
         <div
             className="modal fixed-right fade"
@@ -33,22 +43,23 @@ const ModalCart = () => {
                     {/* List group */}
                     <ul className="list-group list-group-lg list-group-flush">
                         {listCart.map((item, index) => {
-                            return <CartItem {...item} key={index} />;
+                            return (
+                                <Fragment key={index}>
+                                    {withFormatPrice(CartItem, item)}
+                                </Fragment>
+                            );
                         })}
                     </ul>
                     {/* Footer */}
                     <div className="modal-footer line-height-fixed font-size-sm bg-light mt-auto">
                         <strong>Subtotal</strong>{' '}
-                        <strong className="ml-auto">$89.00</strong>
+                        <strong className="ml-auto">{amount} vnđ</strong>
                     </div>
                     {/* Buttons */}
                     <div className="modal-body">
-                        <a
-                            className="btn btn-block btn-dark"
-                            href="./checkout.html"
-                        >
+                        <Link className="btn btn-block btn-dark" to="/checkout">
                             Continue to Checkout
-                        </a>
+                        </Link>
                         <a
                             className="btn btn-block btn-outline-dark"
                             href="./shopping-cart.html"
@@ -90,7 +101,7 @@ const ModalCart = () => {
     );
 };
 
-const CartItem = ({ name, real_price, images, _id }) => {
+const CartItem = ({ name, real_price_text, images, _id, cartNum }) => {
     const dispatch = useDispatch();
 
     const handleRemove = (e) => {
@@ -118,16 +129,26 @@ const CartItem = ({ name, real_price, images, _id }) => {
                             {name}
                         </a>{' '}
                         <br />
-                        <span className="text-muted">${real_price}</span>
+                        <span className="text-muted">
+                            {real_price_text} vnđ
+                        </span>
                     </p>
                     {/*Footer */}
                     <div className="d-flex align-items-center">
                         {/* Select */}
-                        <select className="custom-select custom-select-xxs w-auto">
-                            <option value={1}>1</option>
-                            <option value={1}>2</option>
-                            <option value={1}>3</option>
-                        </select>
+                        <div className="cart-num">
+                            <button
+                                onClick={() => dispatch(decrementItemCart(_id))}
+                            >
+                                -
+                            </button>
+                            <input type="text" value={cartNum} />
+                            <button
+                                onClick={() => dispatch(incrementItemCart(_id))}
+                            >
+                                +
+                            </button>
+                        </div>
                         {/* Remove */}
                         <a
                             className="font-size-xs text-gray-400 ml-auto"
