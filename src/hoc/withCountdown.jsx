@@ -11,8 +11,10 @@ const WithCountdown = ({ WrapperComponent, initialValue }) => {
     useEffect(() => {
         let timeInterval = setInterval(() => {
             if (time === 0) return clearInterval(timeInterval);
+
             setTime(--time);
         }, 1000);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     let value = {
